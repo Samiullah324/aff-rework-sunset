@@ -1,6 +1,6 @@
 .header {
-  background-color: white;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--hd-bg-primary);
+  border-bottom: 1px solid var(--hd-border-light);
   padding: 0 1rem;
   position: sticky;
   top: 0;
@@ -19,12 +19,12 @@
 .header__logo {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: var(--hd-text-primary);
   text-decoration: none;
 }
 
 .header__logo:hover {
-  color: #3b82f6;
+  color: var(--hd-secondary);
 }
 
 .header__nav {
@@ -44,22 +44,11 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: var(--hd-text-secondary);
 }
 
 .header__auth-links {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  .header {
-    background-color: #1f2937;
-    border-bottom-color: #374151;
-  }
-  
-  .header__logo {
-    color: #f3f4f6;
-  }
 }

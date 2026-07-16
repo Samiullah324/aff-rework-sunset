@@ -138,15 +138,25 @@
   --hd-bg-primary: #121212;
   --hd-bg-secondary: #1e1e1e;
   --hd-bg-tertiary: #2d2d2d;
-  
+  --hd-main-bg: #0f172a;
+  --hd-table-header: #1e293b;
+
   /* Text Colors */
   --hd-text-primary: #ffffff;
   --hd-text-secondary: #b3b3b3;
   --hd-text-tertiary: #808080;
   --hd-text-inverse: #212121;
-  
+
   /* Border Colors */
   --hd-border-light: #404040;
   --hd-border-medium: #606060;
   --hd-border-dark: #808080;
+
+  /* Adjust primary colors for dark mode */
+  --hd-primary-light: #ec407a;
+  --hd-primary-dark: #ad1457;
+
+  /* Shadows */
+  --hd-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --hd-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }

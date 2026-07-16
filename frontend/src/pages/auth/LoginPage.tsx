@@ -6,6 +6,7 @@ import { loginUser, clearError } from '@store/slices/authSlice'
 import { Button } from '@components/atoms/Button'
 import { Input } from '@components/atoms/Input'
 import { Logo } from '@components/atoms/Logo'
+import { ThemeToggle } from '@components/atoms/ThemeToggle'
 import { useAuthContent } from '@hooks/useContent'
 import { Eye, EyeOff } from 'lucide-react'
 import './LoginPage.css'
@@ -61,6 +62,9 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
+      <div className="login-page__theme-toggle">
+        <ThemeToggle />
+      </div>
       <div className="login-container">
         <div className="login-left">
           <div className="login-form-wrapper">
