@@ -47,7 +47,7 @@ Remove placeholder/demo content from the React frontend and Django backend monor
 ## Branch & PR
 
 - Branch: `sunset/task/1-dcef6d25` (rebased onto `origin/main` at `140de72`)
-- PR: opened against `main` — see repository pull requests
+- PR: https://github.com/Samiullah324/aff-rework-sunset/pull/3 (open against `main`)
 
 ## Open Questions / Follow-ups
 
