@@ -2,70 +2,96 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform var(--hd-transition-spring);
 }
 
-/* Logo Sizes */
-.logo--sm {
-  width: 120px;
-  height: auto;
+.logo:hover {
+  transform: scale(1.02);
 }
 
-.logo--md {
-  width: 160px;
-  height: auto;
+.logo-text {
+  font-family: var(--hd-font-family);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hd-text-primary);
+  white-space: nowrap;
+  background: linear-gradient(
+    135deg,
+    var(--hd-text-primary) 0%,
+    var(--hd-secondary) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity var(--hd-transition-base);
 }
 
-.logo--lg {
-  width: 200px;
-  height: auto;
+.logo--light .logo-text {
+  background: linear-gradient(
+    135deg,
+    var(--hd-sidebar-text) 0%,
+    var(--hd-secondary-light) 50%,
+    #c4b5fd 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.logo--xl {
-  width: 280px;
-  height: auto;
+.logo--sm .logo-text {
+  font-size: var(--hd-font-size-lg);
 }
 
-.logo--2xl {
-  width: 360px;
-  height: auto;
+.logo--md .logo-text {
+  font-size: var(--hd-font-size-xl);
 }
 
-.logo-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
+.logo--lg .logo-text {
+  font-size: var(--hd-font-size-2xl);
 }
 
-/* Responsive adjustments */
+.logo--xl .logo-text {
+  font-size: var(--hd-font-size-3xl);
+}
+
+.logo--2xl .logo-text {
+  font-size: var(--hd-font-size-4xl);
+}
+
 @media (max-width: 768px) {
-  .logo--xl {
-    width: 240px;
+  .logo--xl .logo-text {
+    font-size: var(--hd-font-size-2xl);
   }
-  
-  .logo--2xl {
-    width: 280px;
+
+  .logo--2xl .logo-text {
+    font-size: var(--hd-font-size-3xl);
   }
-  
-  .logo--lg {
-    width: 160px;
+
+  .logo--lg .logo-text {
+    font-size: var(--hd-font-size-xl);
   }
 }
 
 @media (max-width: 480px) {
-  .logo--xl {
-    width: 200px;
+  .logo--xl .logo-text {
+    font-size: var(--hd-font-size-xl);
   }
-  
-  .logo--2xl {
-    width: 240px;
+
+  .logo--2xl .logo-text {
+    font-size: var(--hd-font-size-2xl);
   }
-  
-  .logo--lg {
-    width: 140px;
+
+  .logo--lg .logo-text {
+    font-size: var(--hd-font-size-lg);
   }
-  
-  .logo--md {
-    width: 120px;
+
+  .logo--md .logo-text {
+    font-size: var(--hd-font-size-base);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo:hover {
+    transform: none;
   }
 }

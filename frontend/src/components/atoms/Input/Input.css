@@ -13,6 +13,7 @@
   font-weight: 500;
   color: var(--hd-text-primary);
   margin-bottom: var(--hd-space-1);
+  transition: color var(--hd-transition-base);
 }
 
 .input {
@@ -21,15 +22,24 @@
   border-radius: var(--hd-radius-md);
   font-size: var(--hd-font-size-sm);
   line-height: 1.25rem;
-  transition: var(--hd-transition-base);
+  transition:
+    border-color var(--hd-transition-base),
+    box-shadow var(--hd-transition-base),
+    background-color var(--hd-transition-base),
+    transform var(--hd-transition-fast);
   outline: none;
   background-color: var(--hd-bg-primary);
   color: var(--hd-text-primary);
 }
 
+.input:hover:not(:disabled) {
+  border-color: var(--hd-gray-300);
+}
+
 .input:focus {
   border-color: var(--hd-secondary);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+  transform: translateY(-1px);
 }
 
 .input:disabled {
@@ -51,6 +61,7 @@
   font-size: var(--hd-font-size-xs);
   color: var(--hd-error);
   margin-top: var(--hd-space-1);
+  animation: hd-fade-in-up 0.25s ease-out;
 }
 
 .input__helper {

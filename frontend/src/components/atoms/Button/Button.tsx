@@ -36,7 +36,7 @@ export const Button = ({
       {...props}
     >
       {isLoading ? (
-        <span className="btn__spinner">Loading...</span>
+        <span className="btn__spinner" aria-label="Loading" />
       ) : (
         children
       )}
