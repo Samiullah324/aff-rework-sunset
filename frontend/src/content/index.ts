@@ -1,12 +1,14 @@
 // Centralized Content Management System
 // All text content for the webapp is controlled from this file
 
+const appName = import.meta.env.VITE_APP_NAME || 'Application'
+
 export const content = {
   // Application Info
   app: {
-    name: 'Horizon Digital',
-    tagline: 'Your digital transformation partner for modern business solutions',
-    version: '3.1.0'
+    name: appName,
+    tagline: 'Sign in to manage your account',
+    version: '1.0.0'
   },
 
   // Authentication Pages
@@ -27,7 +29,7 @@ export const content = {
     },
     register: {
       title: 'Create Account',
-      subtitle: 'Join Horizon Digital today',
+      subtitle: `Join ${appName} today`,
       emailLabel: 'Email Address',
       emailPlaceholder: 'Enter your email',
       passwordLabel: 'Password',
@@ -46,29 +48,11 @@ export const content = {
   dashboard: {
     welcome: {
       title: 'Welcome back',
-      subtitle: 'Here\'s what\'s happening with your projects today'
+      subtitle: 'Your dashboard is ready when you add data'
     },
-    cards: {
-      totalProjects: {
-        title: 'Total Projects',
-        description: 'Active projects in progress'
-      },
-      completedTasks: {
-        title: 'Completed Tasks',
-        description: 'Tasks finished this month'
-      },
-      teamMembers: {
-        title: 'Team Members',
-        description: 'Active team members'
-      },
-      revenue: {
-        title: 'Revenue',
-        description: 'Total revenue this quarter'
-      }
-    },
-    recentActivity: {
-      title: 'Recent Activity',
-      noActivity: 'No recent activity to show'
+    emptyState: {
+      title: 'No data yet',
+      description: 'Content will appear here once your application is configured with real data sources.'
     }
   },
 
@@ -76,15 +60,6 @@ export const content = {
   sidebar: {
     menuItems: {
       dashboard: 'Dashboard',
-      jobs: 'Jobs',
-      calendar: 'Calendar',
-      clients: 'Clients',
-      employees: 'Employees',
-      invoicing: 'Invoicing',
-      skillMatrix: 'Skill Matrix',
-      discoverySession: 'Discovery Session',
-      feedback: 'Feedback',
-      settings: 'Settings'
     },
     user: {
       logout: 'Logout'
@@ -134,9 +109,9 @@ export const content = {
 
   // Meta Information
   meta: {
-    title: 'Horizon Digital',
-    description: 'Horizon Digital - Your digital transformation partner for modern business solutions',
-    keywords: 'digital transformation, business solutions, technology, consulting'
+    title: appName,
+    description: `${appName} — authenticated web application`,
+    keywords: 'web application'
   }
 } as const
 
@@ -149,15 +124,15 @@ export type DashboardContentKey = keyof typeof content.dashboard
 export const getContent = (path: string): string => {
   const keys = path.split('.')
   let result: unknown = content
-  
+
   for (const key of keys) {
     if (result && typeof result === 'object' && key in result) {
       result = (result as Record<string, unknown>)[key]
     } else {
       console.warn(`Content path "${path}" not found`)
-      return path // Return the path as fallback
+      return path
     }
   }
-  
+
   return typeof result === 'string' ? result : path
 }

@@ -2,18 +2,8 @@ import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@hooks/useAuth'
 import { useSidebarContent } from '@hooks/useContent'
 import { Logo } from '@components/atoms/Logo'
-import { 
-  LayoutDashboard, 
-  Briefcase, 
-  Calendar, 
-  Users, 
-  BarChart3, 
-  Settings, 
-  LogOut 
-} from 'lucide-react'
+import { LayoutDashboard, LogOut } from 'lucide-react'
 import './Sidebar.css'
-
-// Menu items are now defined inside the component to use content hook
 
 export const Sidebar = () => {
   const location = useLocation()
@@ -25,38 +15,7 @@ export const Sidebar = () => {
       icon: LayoutDashboard,
       label: sidebarContent.menuItems.dashboard,
       path: '/dashboard',
-      active: true
     },
-    {
-      icon: Briefcase,
-      label: sidebarContent.menuItems.jobs,
-      path: '/jobs'
-    },
-    {
-      icon: Calendar,
-      label: sidebarContent.menuItems.calendar,
-      path: '/calendar'
-    },
-    {
-      icon: Users,
-      label: sidebarContent.menuItems.clients,
-      path: '/clients'
-    },
-    {
-      icon: Users,
-      label: sidebarContent.menuItems.employees,
-      path: '/employees'
-    },
-    {
-      icon: BarChart3,
-      label: sidebarContent.menuItems.invoicing,
-      path: '/invoicing'
-    },
-    {
-      icon: Settings,
-      label: sidebarContent.menuItems.settings,
-      path: '/settings'
-    }
   ]
 
   const handleLogout = () => {
@@ -73,7 +32,7 @@ export const Sidebar = () => {
         {menuItems.map((item) => {
           const Icon = item.icon
           const isActive = location.pathname === item.path
-          
+
           return (
             <Link
               key={item.path}
