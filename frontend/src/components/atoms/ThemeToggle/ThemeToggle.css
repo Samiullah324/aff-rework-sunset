@@ -10,13 +10,31 @@
   background: var(--hd-bg-primary);
   color: var(--hd-text-secondary);
   cursor: pointer;
-  transition: background-color var(--hd-transition-fast), color var(--hd-transition-fast), border-color var(--hd-transition-fast);
+  transition: background-color var(--hd-transition-fast),
+    color var(--hd-transition-fast),
+    border-color var(--hd-transition-fast),
+    transform var(--hd-transition-fast),
+    box-shadow var(--hd-transition-fast);
 }
 
 .theme-toggle:hover {
   background: var(--hd-bg-tertiary);
-  color: var(--hd-text-primary);
+  color: var(--hd-secondary);
   border-color: var(--hd-border-medium);
+  transform: rotate(15deg) scale(1.05);
+  box-shadow: var(--hd-shadow-sm);
+}
+
+.theme-toggle:active {
+  transform: rotate(0deg) scale(0.95);
+}
+
+.theme-toggle__icon {
+  transition: transform var(--hd-transition-slow);
+}
+
+.theme-toggle:hover .theme-toggle__icon {
+  transform: rotate(-15deg);
 }
 
 .theme-toggle:focus-visible {

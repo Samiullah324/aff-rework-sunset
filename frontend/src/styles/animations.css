@@ -1,0 +1,192 @@
+/* Shared animation utilities — BEM block: hd-animate */
+
+@keyframes hd-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hd-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hd-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hd-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hd-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hd-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hd-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes hd-pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes hd-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hd-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes hd-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hd-animate--fade-in {
+  animation: hd-fade-in var(--hd-animation-duration-base) var(--hd-animation-easing) both;
+}
+
+.hd-animate--fade-in-up {
+  animation: hd-fade-in-up var(--hd-animation-duration-slow) var(--hd-animation-easing) both;
+}
+
+.hd-animate--fade-in-down {
+  animation: hd-fade-in-down var(--hd-animation-duration-base) var(--hd-animation-easing) both;
+}
+
+.hd-animate--slide-in-left {
+  animation: hd-slide-in-left var(--hd-animation-duration-slow) var(--hd-animation-easing) both;
+}
+
+.hd-animate--slide-in-right {
+  animation: hd-slide-in-right var(--hd-animation-duration-slow) var(--hd-animation-easing) both;
+}
+
+.hd-animate--scale-in {
+  animation: hd-scale-in var(--hd-animation-duration-base) var(--hd-animation-easing) both;
+}
+
+.hd-animate--float {
+  animation: hd-float 3s ease-in-out infinite;
+}
+
+.hd-animate--pulse-soft {
+  animation: hd-pulse-soft 2.5s ease-in-out infinite;
+}
+
+.hd-animate--shake {
+  animation: hd-shake 0.4s ease-in-out;
+}
+
+.hd-animate--delay-1 {
+  animation-delay: 0.1s;
+}
+
+.hd-animate--delay-2 {
+  animation-delay: 0.2s;
+}
+
+.hd-animate--delay-3 {
+  animation-delay: 0.3s;
+}
+
+.hd-animate--delay-4 {
+  animation-delay: 0.4s;
+}
+
+.hd-animate--delay-5 {
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hd-animate--fade-in,
+  .hd-animate--fade-in-up,
+  .hd-animate--fade-in-down,
+  .hd-animate--slide-in-left,
+  .hd-animate--slide-in-right,
+  .hd-animate--scale-in,
+  .hd-animate--float,
+  .hd-animate--pulse-soft,
+  .hd-animate--shake {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

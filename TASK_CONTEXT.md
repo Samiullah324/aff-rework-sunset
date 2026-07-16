@@ -1,57 +1,54 @@
-# Task Context: Dark Mode
+# Task Context: UI Animations & Style Enhancements
 
 ## Ticket Scope
 
-Add a user-togglable Dark Mode to the React frontend. This is a UI-only change — no backend models, APIs, or deployment configuration are affected.
+Enhance the React frontend UI with contemporary styling and CSS animations/transitions. This is a frontend-only change — no backend models, APIs, or deployment configuration are affected.
 
 ## Key Implementation Decisions
 
-1. **Theme context** — Created `ThemeProvider` / `useTheme` in `frontend/src/contexts/themeContext.tsx`. Toggling updates React state and applies a `dark` class on `document.documentElement` so existing CSS variable overrides in `theme.css` take effect app-wide.
-2. **Theme toggle UI** — Added a reusable `ThemeToggle` atom (moon/sun icon) in the sidebar (dashboard), auth pages (login/register top-right), and `Header` (for any layout using it).
-3. **CSS strategy** — Extended the existing `.dark` block in `theme.css` with main-background and shadow tokens. Migrated hard-coded colors in `Header`, `DashboardLayout`, `LoginPage`, and `DashboardPage` styles to CSS variables so light/dark switch consistently without relying on `prefers-color-scheme` alone.
-4. **Testing** — Added Vitest + Testing Library (no prior frontend test runner). Tests verify default light theme, toggle to dark, DOM class application, and toggle back to light.
-5. **Persistence** — Theme resets on page reload (in-memory state only). localStorage persistence was intentionally omitted to match the ticket's minimal context spec; can be added as a follow-up.
+1. **CSS-first animations** — No new animation libraries (framer-motion/react-spring not in use). Added a shared `animations.css` with BEM utility classes (`hd-animate--*`) and keyframes, respecting `prefers-reduced-motion`.
+2. **Theme tokens** — Extended `theme.css` with animation duration/easing variables and brand gradient tokens used on auth panels and surfaces.
+3. **Page entrance animations** — Login and register pages use staggered fade/slide/scale entrance classes on form, brand panel, and footer sections.
+4. **Component polish** — Buttons get hover lift, animated loading spinner, and `aria-busy`; inputs get focus lift; sidebar nav items slide on hover; dashboard empty state floats its icon; theme toggle rotates on hover.
+5. **Testing** — Added Vitest tests for LoginPage animation class application and Button loading spinner behavior. Existing theme tests remain green.
 
 ## Files Changed
 
 | File | Why |
 |------|-----|
-| `frontend/src/contexts/themeContext.tsx` | Theme state, toggle, and `dark` class on `<html>` |
-| `frontend/src/contexts/themeContext.test.tsx` | Unit tests for theme toggling |
-| `frontend/src/components/atoms/ThemeToggle/*` | Reusable toggle button component |
-| `frontend/src/components/atoms/index.ts` | Export `ThemeToggle` |
-| `frontend/src/main.tsx` | Wrap app with `ThemeProvider` |
-| `frontend/src/components/organisms/Header/Header.tsx` | Add theme toggle to nav |
-| `frontend/src/components/organisms/Header/Header.css` | Use theme CSS variables |
-| `frontend/src/components/organisms/Sidebar/Sidebar.tsx` | Add theme toggle in sidebar header |
-| `frontend/src/components/organisms/Sidebar/Sidebar.css` | Layout for toggle beside logo |
-| `frontend/src/pages/auth/LoginPage.tsx` | Add theme toggle on auth page |
-| `frontend/src/pages/auth/RegisterPage.tsx` | Add theme toggle on auth page |
-| `frontend/src/pages/auth/LoginPage.css` | Theme-aware colors; toggle positioning |
-| `frontend/src/pages/dashboard/DashboardPage.css` | Use theme variables for empty state |
-| `frontend/src/components/templates/DashboardLayout/DashboardLayout.css` | Theme-aware main background |
-| `frontend/src/styles/theme.css` | Expanded `.dark` variable overrides |
-| `frontend/src/index.css` | Theme-aware scrollbar colors |
-| `frontend/package.json` | Add `test` script and Vitest/Testing Library dev deps |
-| `frontend/package-lock.json` | Lockfile for new dev dependencies |
-| `frontend/vite.config.ts` | Vitest configuration |
-| `frontend/tsconfig.app.json` | Vitest globals types |
-| `frontend/src/test/setup.ts` | Test setup (jest-dom matchers) |
+| `frontend/src/styles/animations.css` | Shared keyframes and BEM animation utility classes |
+| `frontend/src/styles/theme.css` | Animation duration/easing and gradient CSS variables |
+| `frontend/src/index.css` | Import shared animations stylesheet |
+| `frontend/src/pages/auth/LoginPage.tsx` | Apply entrance animation classes to auth layout |
+| `frontend/src/pages/auth/LoginPage.css` | Brand gradient panel, link underline animation, error/theme-aware colors |
+| `frontend/src/pages/auth/RegisterPage.tsx` | Same animation classes as login |
+| `frontend/src/pages/auth/LoginPage.test.tsx` | Verify animation classes on login page render |
+| `frontend/src/pages/dashboard/DashboardPage.tsx` | Staggered entrance and float animation on empty state |
+| `frontend/src/pages/dashboard/DashboardPage.css` | Gradient avatar, card hover lift, refined typography |
+| `frontend/src/components/atoms/Button/Button.tsx` | Animated spinner, `aria-busy` for loading state |
+| `frontend/src/components/atoms/Button/Button.css` | Hover lift, spinner keyframe, refined transitions |
+| `frontend/src/components/atoms/Button/Button.test.tsx` | Loading spinner and variant class tests |
+| `frontend/src/components/atoms/Input/Input.css` | Hover/focus transitions with subtle lift |
+| `frontend/src/components/atoms/ThemeToggle/ThemeToggle.tsx` | Icon class for rotation transition |
+| `frontend/src/components/atoms/ThemeToggle/ThemeToggle.css` | Hover rotate/scale interaction |
+| `frontend/src/components/atoms/Logo/Logo.css` | Subtle hover scale on logo |
+| `frontend/src/components/organisms/Sidebar/Sidebar.css` | Nav slide hover, logout button lift, sidebar shadow |
+| `frontend/src/components/templates/DashboardLayout/DashboardLayout.css` | Content fade-in on route load |
 
 ## Validation Performed
 
-- Frontend: `npm run test` — 2 tests pass (2026-07-16)
-- Frontend: `npm run lint` — pass, 1 pre-existing-style warning on context hook export (2026-07-16)
+- Frontend: `npm run test` — 6 tests pass (2026-07-16)
+- Frontend: `npm run lint` — pass, 1 pre-existing warning on context hook export (2026-07-16)
 - Frontend: `npm run build` — pass (2026-07-16)
 - Backend: not touched (no backend changes in scope)
 
 ## Branch & PR
 
-- Branch: `sunset/task/3-156bc49e` (rebased onto `cleanup/remove-demo-content` at `8f101a5`)
-- PR: https://github.com/Samiullah324/aff-rework-sunset/pull/5 (open against `cleanup/remove-demo-content`)
+- Branch: `sunset/task/2-156bc49e` (synced with `cleanup/remove-demo-content`)
+- PR: _(to be created)_
 
 ## Open Questions / Follow-ups
 
-- Persist theme preference in `localStorage` and respect `prefers-color-scheme` on first visit if desired.
-- `Header` / `Layout` template is not currently used by auth or dashboard routes; toggle is placed on auth pages and sidebar directly.
-- `DashboardCard` and other atoms already use CSS variables and inherit dark mode automatically.
+- Consider adding `framer-motion` for route-level page transitions if more complex choreography is needed later.
+- Auth error shake animation triggers only when error element mounts; could wire explicitly on error state change if desired.
+- `AuthPages.css` remains for legacy auth layout but login/register use `LoginPage.css` exclusively.

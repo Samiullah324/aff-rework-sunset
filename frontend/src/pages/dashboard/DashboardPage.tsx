@@ -12,20 +12,20 @@ const DashboardPage = () => {
   return (
     <DashboardLayout>
       <div className="dashboard-page">
-        <div className="dashboard-header">
+        <div className="dashboard-header hd-animate--fade-in-up">
           <div className="welcome-section">
             <h1>{dashboardContent.welcome.title}, {user?.email?.split('@')[0] || 'User'}!</h1>
             <p>{dashboardContent.welcome.subtitle}</p>
           </div>
-          <div className="user-avatar">
+          <div className="user-avatar hd-animate--scale-in hd-animate--delay-2">
             <div className="avatar-circle">
               <span>{user?.email?.[0]?.toUpperCase() || 'U'}</span>
             </div>
           </div>
         </div>
 
-        <div className="dashboard-empty-state">
-          <div className="empty-state-icon">
+        <div className="dashboard-empty-state hd-animate--fade-in-up hd-animate--delay-3">
+          <div className="empty-state-icon hd-animate--float">
             <Inbox size={48} />
           </div>
           <h2>{dashboardContent.emptyState.title}</h2>

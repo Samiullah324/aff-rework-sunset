@@ -33,10 +33,11 @@ export const Button = ({
         className
       )}
       disabled={disabled || isLoading}
+      aria-busy={isLoading}
       {...props}
     >
       {isLoading ? (
-        <span className="btn__spinner">Loading...</span>
+        <span className="btn__spinner" aria-hidden="true" />
       ) : (
         children
       )}

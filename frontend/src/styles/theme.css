@@ -105,6 +105,18 @@
   --hd-transition-fast: 0.15s ease-in-out;
   --hd-transition-base: 0.2s ease-in-out;
   --hd-transition-slow: 0.3s ease-in-out;
+
+  /* Animations */
+  --hd-animation-duration-fast: 0.2s;
+  --hd-animation-duration-base: 0.4s;
+  --hd-animation-duration-slow: 0.6s;
+  --hd-animation-easing: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Gradients */
+  --hd-gradient-brand: linear-gradient(135deg, var(--hd-sidebar-bg) 0%, #2d1b69 50%, var(--hd-secondary-dark) 100%);
+  --hd-gradient-brand-overlay: radial-gradient(ellipse at 30% 20%, rgba(139, 92, 246, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  --hd-gradient-surface: linear-gradient(180deg, var(--hd-bg-primary) 0%, var(--hd-bg-secondary) 100%);
 }
 
 /* Dark Mode Theme */
