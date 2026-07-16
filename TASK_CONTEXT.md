@@ -35,10 +35,19 @@ Remove placeholder/demo content from the React frontend and Django backend monor
 
 ## Validation Performed
 
-- Frontend: `npm run lint` — pass
-- Frontend: `npm run build` — pass
-- Backend: `python3 manage.py test authentication.tests` — 5 tests pass
-- No frontend Jest test suite exists in this project
+- Frontend: `npm run lint` — pass (2026-07-16)
+- Frontend: `npm run build` — pass (2026-07-16)
+- Backend: `python3 manage.py migrate --run-syncdb` — pass on empty PostgreSQL database (2026-07-16)
+- Backend: `python3 manage.py test authentication.tests` — 5 tests pass (2026-07-16)
+- Backend: `python3 manage.py seed_demo` — creates/updates `demo@sunset.dev` admin only (2026-07-16)
+- Deploy contract: `python3 .sunset/validate_deploy_contract.py` — pass (2026-07-16)
+- No frontend Jest/Vitest test suite exists in this project
+- No flake8/pylint configuration in this project
+
+## Branch & PR
+
+- Branch: `sunset/task/1-dcef6d25` (rebased onto `origin/main` at `140de72`)
+- PR: opened against `main` — see repository pull requests
 
 ## Open Questions / Follow-ups
 
