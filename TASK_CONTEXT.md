@@ -40,8 +40,8 @@ Enhance the React frontend UI with animations and styling improvements across au
 
 ## Branch & PR
 
-- Branch: `sunset/task/ui-enhancements`
-- PR: _(pending)_
+- Branch: `sunset/task/2-dcef6d25`
+- PR: https://github.com/Samiullah324/aff-rework-sunset/pull/4 (open against `main`)
 
 ## Open Questions / Follow-ups
 
