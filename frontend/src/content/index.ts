@@ -2,14 +2,12 @@
 // All text content for the webapp is controlled from this file
 
 export const content = {
-  // Application Info
   app: {
-    name: 'Horizon Digital',
-    tagline: 'Your digital transformation partner for modern business solutions',
-    version: '3.1.0'
+    name: 'App',
+    tagline: 'Your application',
+    version: '1.0.0'
   },
 
-  // Authentication Pages
   auth: {
     login: {
       title: 'Welcome Back',
@@ -27,7 +25,7 @@ export const content = {
     },
     register: {
       title: 'Create Account',
-      subtitle: 'Join Horizon Digital today',
+      subtitle: 'Create your account to get started',
       emailLabel: 'Email Address',
       emailPlaceholder: 'Enter your email',
       passwordLabel: 'Password',
@@ -42,56 +40,25 @@ export const content = {
     }
   },
 
-  // Dashboard
   dashboard: {
     welcome: {
       title: 'Welcome back',
-      subtitle: 'Here\'s what\'s happening with your projects today'
+      subtitle: 'Your dashboard is ready'
     },
-    cards: {
-      totalProjects: {
-        title: 'Total Projects',
-        description: 'Active projects in progress'
-      },
-      completedTasks: {
-        title: 'Completed Tasks',
-        description: 'Tasks finished this month'
-      },
-      teamMembers: {
-        title: 'Team Members',
-        description: 'Active team members'
-      },
-      revenue: {
-        title: 'Revenue',
-        description: 'Total revenue this quarter'
-      }
-    },
-    recentActivity: {
-      title: 'Recent Activity',
-      noActivity: 'No recent activity to show'
+    emptyState: {
+      message: 'No data yet'
     }
   },
 
-  // Sidebar Navigation
   sidebar: {
     menuItems: {
       dashboard: 'Dashboard',
-      jobs: 'Jobs',
-      calendar: 'Calendar',
-      clients: 'Clients',
-      employees: 'Employees',
-      invoicing: 'Invoicing',
-      skillMatrix: 'Skill Matrix',
-      discoverySession: 'Discovery Session',
-      feedback: 'Feedback',
-      settings: 'Settings'
     },
     user: {
       logout: 'Logout'
     }
   },
 
-  // Header
   header: {
     welcome: 'Welcome',
     dashboard: 'Dashboard',
@@ -100,7 +67,6 @@ export const content = {
     logout: 'Logout'
   },
 
-  // Common UI Elements
   common: {
     buttons: {
       save: 'Save',
@@ -132,32 +98,29 @@ export const content = {
     }
   },
 
-  // Meta Information
   meta: {
-    title: 'Horizon Digital',
-    description: 'Horizon Digital - Your digital transformation partner for modern business solutions',
-    keywords: 'digital transformation, business solutions, technology, consulting'
+    title: 'App',
+    description: 'Application',
+    keywords: ''
   }
 } as const
 
-// Type for content keys (for TypeScript support)
 export type ContentKey = keyof typeof content
 export type AuthContentKey = keyof typeof content.auth
 export type DashboardContentKey = keyof typeof content.dashboard
 
-// Helper function to get nested content
 export const getContent = (path: string): string => {
   const keys = path.split('.')
   let result: unknown = content
-  
+
   for (const key of keys) {
     if (result && typeof result === 'object' && key in result) {
       result = (result as Record<string, unknown>)[key]
     } else {
       console.warn(`Content path "${path}" not found`)
-      return path // Return the path as fallback
+      return path
     }
   }
-  
+
   return typeof result === 'string' ? result : path
 }
