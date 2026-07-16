@@ -48,7 +48,7 @@ Add a user-togglable Dark Mode to the React frontend. This is a UI-only change â
 ## Branch & PR
 
 - Branch: `sunset/task/3-156bc49e` (rebased onto `cleanup/remove-demo-content` at `8f101a5`)
-- PR: _(to be created)_
+- PR: https://github.com/Samiullah324/aff-rework-sunset/pull/5 (open against `cleanup/remove-demo-content`)
 
 ## Open Questions / Follow-ups
 
