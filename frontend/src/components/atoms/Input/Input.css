@@ -21,15 +21,23 @@
   border-radius: var(--hd-radius-md);
   font-size: var(--hd-font-size-sm);
   line-height: 1.25rem;
-  transition: var(--hd-transition-base);
+  transition: border-color var(--hd-transition-base),
+    box-shadow var(--hd-transition-base),
+    background-color var(--hd-transition-base),
+    transform var(--hd-transition-fast);
   outline: none;
   background-color: var(--hd-bg-primary);
   color: var(--hd-text-primary);
 }
 
+.input:hover:not(:disabled):not(:focus) {
+  border-color: var(--hd-border-medium);
+}
+
 .input:focus {
   border-color: var(--hd-secondary);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  transform: translateY(-1px);
 }
 
 .input:disabled {

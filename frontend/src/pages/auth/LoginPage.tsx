@@ -62,20 +62,20 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-      <div className="login-page__theme-toggle">
+      <div className="login-page__theme-toggle hd-animate--fade-in-down">
         <ThemeToggle />
       </div>
       <div className="login-container">
-        <div className="login-left">
+        <div className="login-left hd-animate--slide-in-left">
           <div className="login-form-wrapper">
-            <div className="login-header">
+            <div className="login-header hd-animate--fade-in-up">
               <h1>{authContent.login.title}</h1>
               <p>{authContent.login.subtitle}</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="login-form">
+            <form onSubmit={handleSubmit} className="login-form hd-animate--fade-in-up hd-animate--delay-2">
               {error && (
-                <div className="login-error">
+                <div className="login-error hd-animate--shake">
                   {error}
                 </div>
               )}
@@ -137,7 +137,7 @@ const LoginPage = () => {
               </Button>
             </form>
 
-            <div className="login-footer">
+            <div className="login-footer hd-animate--fade-in hd-animate--delay-3">
               <p>
                 {authContent.login.noAccount}{' '}
                 <Link to="/register" className="signup-link">
@@ -148,8 +148,8 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <div className="login-right">
-                        <div className="brand-section">
+        <div className="login-right hd-animate--slide-in-right">
+                        <div className="brand-section hd-animate--scale-in hd-animate--delay-2">
                 <Logo size="2xl" className="logo--light" />
           </div>
         </div>

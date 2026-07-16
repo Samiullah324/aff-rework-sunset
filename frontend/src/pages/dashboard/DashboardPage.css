@@ -13,15 +13,17 @@
 
 .welcome-section h1 {
   font-size: var(--hd-font-size-4xl);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--hd-text-primary);
   margin: 0 0 var(--hd-space-2) 0;
+  letter-spacing: -0.02em;
 }
 
 .welcome-section p {
   color: var(--hd-text-secondary);
   font-size: var(--hd-font-size-base);
   margin: 0;
+  line-height: 1.6;
 }
 
 .user-avatar {
@@ -33,7 +35,7 @@
 .avatar-circle {
   width: 48px;
   height: 48px;
-  background: var(--hd-secondary);
+  background: linear-gradient(135deg, var(--hd-secondary) 0%, var(--hd-secondary-dark) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -41,6 +43,13 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--hd-text-inverse);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+  transition: transform var(--hd-transition-base), box-shadow var(--hd-transition-base);
+}
+
+.avatar-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.45);
 }
 
 .dashboard-empty-state {
@@ -53,7 +62,13 @@
   background: var(--hd-bg-primary);
   border: 1px solid var(--hd-border-light);
   border-radius: var(--hd-radius-xl);
-  box-shadow: var(--hd-shadow-sm);
+  box-shadow: var(--hd-shadow-md);
+  transition: box-shadow var(--hd-transition-slow), transform var(--hd-transition-slow);
+}
+
+.dashboard-empty-state:hover {
+  box-shadow: var(--hd-shadow-lg);
+  transform: translateY(-2px);
 }
 
 .empty-state-icon {
@@ -64,8 +79,9 @@
   height: 80px;
   margin-bottom: var(--hd-space-6);
   border-radius: var(--hd-radius-full);
-  background: var(--hd-bg-tertiary);
-  color: var(--hd-text-tertiary);
+  background: linear-gradient(135deg, var(--hd-bg-tertiary) 0%, var(--hd-bg-secondary) 100%);
+  color: var(--hd-secondary);
+  border: 1px solid var(--hd-border-light);
 }
 
 .dashboard-empty-state h2 {

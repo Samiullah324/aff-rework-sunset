@@ -14,6 +14,7 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
+  animation: hd-fade-in var(--hd-animation-duration-slow) var(--hd-animation-easing) both;
 }
 
 /* Mobile Responsive */
