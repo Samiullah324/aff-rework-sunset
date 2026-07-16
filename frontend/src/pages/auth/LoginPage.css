@@ -2,6 +2,14 @@
   min-height: 100vh;
   display: flex;
   background: var(--hd-bg-secondary);
+  position: relative;
+}
+
+.login-page__theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
 }
 
 .login-container {
@@ -73,7 +81,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #718096;
+  color: var(--hd-text-tertiary);
   cursor: pointer;
   padding: 4px;
   display: flex;
@@ -82,7 +90,7 @@
 }
 
 .password-toggle:hover {
-  color: #4a5568;
+  color: var(--hd-text-secondary);
 }
 
 .form-options {
@@ -96,7 +104,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: #4a5568;
+  color: var(--hd-text-secondary);
   cursor: pointer;
 }
 
@@ -126,11 +134,11 @@
   text-align: center;
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--hd-border-light);
 }
 
 .login-footer p {
-  color: #718096;
+  color: var(--hd-text-secondary);
   font-size: 0.875rem;
 }
 
@@ -224,27 +232,5 @@
   .form-row {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .login-left {
-    background: #1a202c;
-  }
-  
-  .login-header h1 {
-    color: #f7fafc;
-  }
-  
-  .login-header p {
-    color: #a0aec0;
-  }
-  
-  .remember-me {
-    color: #e2e8f0;
-  }
-  
-  .login-footer p {
-    color: #a0aec0;
   }
 }

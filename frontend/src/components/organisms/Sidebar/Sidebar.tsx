@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@hooks/useAuth'
 import { useSidebarContent } from '@hooks/useContent'
 import { Logo } from '@components/atoms/Logo'
+import { ThemeToggle } from '@components/atoms/ThemeToggle'
 import { LayoutDashboard, LogOut } from 'lucide-react'
 import './Sidebar.css'
 
@@ -26,6 +27,7 @@ export const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar-header">
         <Logo size="lg" className="logo--light" />
+        <ThemeToggle />
       </div>
 
       <nav className="sidebar-nav">

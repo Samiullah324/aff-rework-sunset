@@ -64,8 +64,8 @@
   height: 80px;
   margin-bottom: var(--hd-space-6);
   border-radius: var(--hd-radius-full);
-  background: var(--hd-gray-100);
-  color: var(--hd-gray-400);
+  background: var(--hd-bg-tertiary);
+  color: var(--hd-text-tertiary);
 }
 
 .dashboard-empty-state h2 {
@@ -100,33 +100,5 @@
 
   .dashboard-empty-state {
     padding: var(--hd-space-10) var(--hd-space-4);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .welcome-section h1 {
-    color: #f1f5f9;
-  }
-
-  .welcome-section p {
-    color: #94a3b8;
-  }
-
-  .dashboard-empty-state {
-    background: #1e293b;
-    border-color: #334155;
-  }
-
-  .empty-state-icon {
-    background: #334155;
-    color: #94a3b8;
-  }
-
-  .dashboard-empty-state h2 {
-    color: #f1f5f9;
-  }
-
-  .dashboard-empty-state p {
-    color: #94a3b8;
   }
 }
