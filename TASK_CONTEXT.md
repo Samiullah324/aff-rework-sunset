@@ -45,7 +45,7 @@ Enhance the React frontend UI with contemporary styling and CSS animations/trans
 ## Branch & PR
 
 - Branch: `sunset/task/2-156bc49e` (synced with `cleanup/remove-demo-content`)
-- PR: _(to be created)_
+- PR: https://github.com/Samiullah324/aff-rework-sunset/pull/6 (open against `cleanup/remove-demo-content`)
 
 ## Open Questions / Follow-ups
 
